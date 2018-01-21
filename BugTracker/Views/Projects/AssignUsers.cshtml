@@ -1,0 +1,19 @@
+﻿@model BugTracker.Models.AssignProjectsViewModel
+@{
+    ViewBag.Title = "AssignProjectsViewModel";
+}
+
+<h2>Assign Users</h2>
+
+@using (Html.BeginForm("AssignUsers", "Projects", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    @Model.projectName
+    @Html.ListBox("SelectedUsers", Model.userList)
+
+    <button type="submit">
+        Submit
+    </button>
+}
+

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Bug Tracker</h1>
+    <p class="lead">Top ranked bug tracking program in the industry.</p>
+    <p><a href="" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<!-- Verify user role to create project-->
+@if (User.IsInRole("Admin"))
+{
+    <span>
+        <a href="@Url.Action("Create", "Projects")">Create Project</a>
+    </span>
+}
+<div class="row">
+    <div class="col-md-4">
+        <h2></h2>
+    </div>
+    <div class="col-md-4">
+        <h2></h2>
+
+    </div>
+    <div class="col-md-4">
+        <h2></h2>
+
+    </div>
+</div>

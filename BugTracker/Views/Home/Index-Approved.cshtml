@@ -1,0 +1,116 @@
+﻿
+@using BugTracker.Models
+
+@model LoginViewModel
+
+
+@{
+    Layout = "~/Views/Shared/_MyLogin.cshtml";
+}
+
+<link href="~/assets/css/my-custom-Landing.css" rel="stylesheet" type="text/css">
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+<!-- Template -->
+<div class="wrapper full-page-wrapper page-auth page-login text-center">
+    <div class="inner-page">
+        @*<div class="logo">
+                <a href="index.html"><img src="assets/img/kingadmin-logo.png" alt="" /></a>
+            </div>*@
+        @*<button type="button" class="btn btn-auth-facebook"><span>Login via Facebook</span></button>*@
+        <div class="logInHeader">
+            <h1 id="landingHeader">Bug Tracker</h1><br /><br />
+        </div>
+        @*<div class="separator"><span>OR</span></div>*@
+        <div class="login-box center-block" id="logInBox">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        </div>
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <label class="fancy-checkbox">
+                                <input type="checkbox">
+                                <span>Remember me next time</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-custom-primary btn-lg btn-block btn-auth" id="logInBtn"><i class="fa fa-arrow-circle-o-right"></i> Login</button>
+                    </div>
+            }
+            <div class="links">
+                @*<p>@Html.ActionLink("ForgotPassword", "ForgotPassword")</p>*@
+                <P>
+                    @Html.ActionLink("Forgot Password", "ForgotPassword", "Account", null, new { @class = "text" })
+                </P>
+                <br />
+                @*<p>@Html.ActionLink("Create New Account", "Register")</p>*@
+                <P>
+                    @Html.ActionLink("Create New Account", "Register", "Account", null, new { @class = "text" })
+                </P>
+            </div>
+
+        </div>
+        <br /><br />
+        <h4>Demo Accounts</h4><br />
+
+        <div class="row text-center">
+            <div class="btn-group">                 
+                @using (Html.BeginForm("LoginGuestSubmitter", "Account"))
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary">Submitter</button>
+                }              
+                @using (Html.BeginForm("LoginGuestDeveloper", "Account"))
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary">Developer</button>
+                }
+                @using (Html.BeginForm("LoginGuestProjectManager", "Account"))
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary">Project Mgr.</button>
+                }
+                @using (Html.BeginForm("LoginGuestAdmin", "Account"))
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary">Admin</button>
+                }                
+            </div><br /><br />
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+﻿@model BugTracker.Models.IndexViewModel
+
+@{
+    Layout = "~/Views/Shared/_MyLogin.cshtml";
+}
+
+<link href="~/assets/css/my-custom-Landing.css" rel="stylesheet" type="text/css">
+
+
+<!-- Template -->
+<div class="wrapper full-page-wrapper page-auth page-login text-center">
+    <div class="inner-page">
+        <div class="logInHeader">
+            <h1 id="landingHeader">Bug Tracker</h1><br /><br />
+            <h3 class="landingSubHeader2">Account Settings</h3><br /><br />
+        </div>
+        @*<div class="separator"><span>OR</span></div>*@
+        <div class="login-box center-block" id="logInBox">
+            @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal" style="font-size: 16px">
+                        <dt>Password:</dt>
+                        <dd>
+                            [
+                            @if (Model.HasPassword)
+                            {
+                                @Html.ActionLink("Change your password", "ChangePassword")
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Create", "SetPassword")
+                            }
+                            ]
+                        </dd><br />
+                    </dl>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

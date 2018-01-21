@@ -1,0 +1,130 @@
+﻿@model BugTracker.Models.Projects
+
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<style>
+    footer{
+        display: none;
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="row">
+    <div class="col-lg-5 ">
+        <ul class="breadcrumb">
+            <li><i class="fa fa-home"></i><a href="@Url.Action("Index", "Projects")">Projects</a></li>
+            <li>Create</li>
+        </ul>
+    </div>
+</div>
+<!-- main -->
+<div class="content">
+    <div class="main-header">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Project</h2>
+                <em>Create</em>
+            </div>
+        </div>
+    </div>
+    <div class="main-content" >
+        <div class="project-section general-info">
+            <div class="row">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <br />
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-1" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-1" })
+                            <div class="col-md-4">
+                                @Html.TextAreaFor(model => model.Description, new { @rows = 10, @cols = 52, htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ProjectManagerId, "Project Manager", htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-1" })
+                                <div class="col-md-4">
+                                    @Html.DropDownList("ProjectManagerId", null, "Unassigned", htmlAttributes: new { @class = "form-control", @id="pmId1" })
+                                    @Html.ValidationMessageFor(model => model.ProjectManagerId, "", new { @class = "text-danger" })
+                                </div>
+                            </div><br />
+                           <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" id="createProjectBtn" />
+                            </div>
+                        </div>
+                    </div><br /><br />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Projects</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { @rows=5, @cols=50, htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

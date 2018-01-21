@@ -1,0 +1,167 @@
+body {  
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+     background-color: #0f8897;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    text-align: right;/*
+    /*margin-top: 500px;*/
+}
+
+#backToLogIn{
+    background-color: #084951;
+    color: #fff;;
+
+}
+#backToLogIn a{
+    color: #fff;
+    opacity: 0.6;
+        font-size: .7em;
+    letter-spacing: 0.1em;
+    font-weight: bolder;
+}
+#backToLogIn a:hover{
+    text-decoration: none;
+    color: #fff;
+    opacity: 1;
+}
+#emailBtn{
+    background-color: #084951;
+    color: #fff;
+    letter-spacing: 0.05em;
+    border-radius: 10px;
+}
+.full-page-wrapper .inner-page{
+    padding-top: 0%;
+}
+
+#landingHeader{
+    font-family: Rock Salt;
+    font-size: 5em;
+    color: #fff;
+    text-shadow: 4px 4px #084951 ;
+}
+#landingSubHeader1{
+    font-family: Rock Salt;
+    font-size: 3.5em;
+    color: #fff;
+    text-shadow: 4px 4px #084951 ;
+}
+.landingSubHeader2{
+    font-family: Rock Salt;
+    font-size: 2em;
+    color: #fff;
+    text-shadow: 4px 4px #084951 ;
+}
+#landingDesc p{
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-shadow: none;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+h4{
+    /*font-family: Rock Salt;*/
+    color: #fff;
+    text-shadow: 2px 2px #084951 ;
+    letter-spacing: 0.1em;
+}
+#landingLogIn{
+    color: #084951;
+    text-shadow: none;
+}
+#createAccount{
+    color: #0f8897;
+    /*text-shadow: 2px 2px #084951;*/
+    text-shadow: none;
+}
+
+#logInBox{
+    border-radius: 25px;
+    background-color: #d9d9d9;
+ }
+#regBox{
+    border-radius: 25px;
+    background-color: #d9d9d9;
+    width: 40%;
+ }
+span::before{
+    background-color: #fff;
+}
+#logInBtn, 
+#registerBtn, 
+#changePassword,
+#setPassword{
+    border-radius: 10px;
+    background-color: #073e46;
+    border-color: #073e46;
+    color: #fff;
+}
+
+.navbar-inverse{
+    border-color: transparent;
+}
+
+.navbar{
+    background:transparent;
+    -webkit-transition:background 0.3s ease-out;
+    transition:background 0.3s ease-out;
+}
+
+#pwordHeading{
+    color: #084951;
+    text-shadow: none;
+}
+footer{
+    background: transparent;
+}
+form {
+    display: inline;
+    margin-right: 0px;
+}
+form button{
+    min-width: 90px;
+    letter-spacing: 0.1em;
+    font-size: 5px;
+    border-radius: 10px;
+}
+#forgotPwordConfirm{
+    color: #084951;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+button.btn.btn-primary{
+    border-radius: 5px;
+    background-color:  #d9d9d9;
+    color: #05292e;
+    font-weight: bolder;
+    font-size: 12px;
+}
+button.btn.btn-primary:hover{
+    background-color:  #073e46;
+    color: #fff;
+}
+
+#rolesAdminHeader{
+    color: #0f8897;
+    font-size: 5em;
+}
+
+@media screen and (min-width: 768px) {
+   .page-auth .center-block {
+    width: 55%;
+  }
+}
+@media screen and (min-width: 992px) {
+   .page-auth .center-block {
+    width: 30%;
+  }
+}
+
+.navbar-inverse .navbar-toggle {
+    display: none;
+}

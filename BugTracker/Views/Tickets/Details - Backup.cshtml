@@ -1,0 +1,183 @@
+﻿@model BugTracker.Models.Tickets
+@using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+  <h4>Tickets</h4>
+    <hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+    @*<p>
+        @if (User.IsInRole("Admin")
+           || User.IsInRole("Project Manager")
+           || User.IsInRole("Developer"))
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+        }
+    </p>*@
+    <dl class="dl-horizontal">
+        <dt>
+            Assigned
+            @*@Html.DisplayNameFor(model => model.AssignedToUser.FirstName)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedToUser.FirstName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.OwnerUser.FirstName)*@
+            Submitter
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerUser.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketPriority.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketPriority.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketStatus.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketStatus.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+
+    </dl>
+</div><div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Created)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Created)
+            </dd>
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Updated)*@
+            Last Modified
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+    </dl>
+        <p>Attachments</p>
+        @foreach(var item in Model.Attachments)
+        {
+           <a href=@item.FileUrl>
+                @if(item.Description != null)
+                {
+                    @item.Description
+                }
+                else
+                {
+                    <span>Attachment</span>
+                }
+                </a>
+                <br />
+        }
+</div>
+        </div>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@Html.Partial("_Attachments", new BugTracker.Models.TicketAttachments() { TicketId = Model.Id,  UserId = User.Identity.GetUserId() })
+
+<div>
+    
+    @if (User.Identity.GetUserId() == Model.OwnerUserId
+        || User.Identity.GetUserId() == Model.AssignedToUserId
+        || User.IsInRole("Project Manager")
+        || User.IsInRole("Admin"))
+    {
+        <h4>Leave a Comment:</h4>
+        using (Html.BeginForm("Create", "TicketComments", FormMethod.Post, new { id = Model.Id }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <input type="hidden" name="TicketId" value="@Model.Id" />
+                <textarea class="form-control" id="ticketComment" name="Comment" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        }
+    }
+</div>
+    <hr />
+                <!-- Posted Comments -->
+<h5 class="text-left">Comments (<span>@Model.TicketComments.Count</span>)</h5>
+@foreach (var item in Model.TicketComments)
+{
+    <div class="media text-left">
+        @*<a class="pull-left" href="#">
+            <img class="media-object" src="~/assets/genericAvatar.jpg" alt="" style="height: 50px; width: 50px">
+        </a>*@
+        <div class="media-body">
+            <h5 class="media-heading">
+                <strong>@Html.DisplayFor(modelItem => item.User.FirstName)<text> </text>
+                        @Html.DisplayFor(modelItem => item.User.LastName)</strong>
+                @Html.DisplayFor(modelItem => item.Created)
+            </h5>
+            @Html.DisplayFor(modelItem => item.Comment)
+        </div>
+
+        @* Validate roles to edit or delete*@
+        @*@if (User.IsInRole("Admin"))
+        {
+            <div class="text-left">
+                <a href="@Url.Action("Edit", "TicketComments", new { id = item.Id})">Edit | </a>
+                <a href="@Url.Action("Delete", "Tic,etComments", new { id = item.Id})">Delete</a>
+            </div>
+        }*@
+
+    </div>
+}
+  

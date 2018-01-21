@@ -1,0 +1,90 @@
+﻿@model IEnumerable<BugTracker.Models.UserRoleViewModel>
+
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="row">
+    <div class="col-lg-5 ">
+        <ul class="breadcrumb">
+            <li><i class="fa fa-home"></i>Admin</li>
+        </ul>
+    </div>
+</div>
+<div class="content">
+    <div class="main-header">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Admin</h2>
+                <em>Home</em>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="widget widget-table">
+    <div class="widget-header table-title">
+        <h3><i class="fa fa-table"></i>USER ROLES</h3>
+    </div>
+    <div class="widget-content">
+        <table id="featured-datatable" class="table @*table-sorting*@ table-striped table-bordered table-hover datatable ">
+            <thead>
+                <tr>
+                    <th>
+                        @*@Html.DisplayNameFor(model => model.user.FirstName)*@
+                       User Name
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.user.Roles)
+                    </th>
+                    <th>
+                        Action Links
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    //var myString = "; ";
+                    <tr>
+                        <td>
+                            @item.user.FirstName
+                            @item.user.LastName
+                        </td>
+                        <td>
+                            @foreach (var items in item.roles)
+                            {
+                                @items<br />
+                            }
+                        </td>
+                        <td>
+                            <button class="btn-xs btn-success">
+                                 @Html.ActionLink("Edit Roles", "RoleManagement", new { Id = item.user.Id })
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br /><br />
+
+
+
+
+
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+@*@Scripts.Render("~/bundles/jquery")*@
+<!--DataTables-->
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+
+<script>
+  $('.table').DataTable();
+</script>

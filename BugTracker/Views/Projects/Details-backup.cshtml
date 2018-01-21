@@ -1,0 +1,170 @@
+﻿@model BugTracker.Models.ProjectDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+    <h4>Projects</h4>
+    <hr />
+<div class="row">
+    <div class="col-md-5">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Project.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.Created)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Project.Created)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.LastUpdate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Project.LastUpdate)
+        </dd>
+        <dt>
+            Project Members
+        </dt>
+        <dd>
+            @foreach (var item in Model.Project.Users)
+            {
+                @Html.DisplayFor(modelitem => item.FirstName)<text> </text>
+                @Html.DisplayFor(modelitem => item.LastName)<text>, </text>
+            }
+        </dd>
+
+
+
+    </dl>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Project.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Project.Description)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+
+
+
+@*<div class="form-horizontal">
+    <div class="row">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextAreaFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-4" })
+
+
+    </div>
+</div>*@
+
+<!-- Fix needed-->
+@Html.Partial("_AssignUsers", Model.AssignUsers)
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Project.Id }) |
+    @Html.ActionLink("Assign Users", "AssignUsers", new { id =Model.Project.Id}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.AssignedToUser.DisplayName)*@
+                Assigned
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.OwnerUser.FirstName)*@
+                Submitter
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Project.Name)*@
+                Project
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.TicketPriority.Name)*@
+                Priority
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.TicketStatus.Name)*@
+                Status
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.TicketType.Name)*@
+                Type
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Title)*@
+                Title
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>*@
+            <th>
+                @*@Html.DisplayNameFor(model => model.Created)*@
+                Created
+            </th>
+            @*<th>*@
+            @*@Html.DisplayNameFor(model => model.Updated)*@
+            @*Modified
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Project.Tickets)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignedToUser.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OwnerUser.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Project.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketPriority.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketStatus.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Created)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Updated)
+                    </td>*@
+                <td>
+
+                    @*@Html.ActionLink("Details", "Details", "Tickets", new { id = item.Id })*@
+                    <a href="@Url.Action("Edit", "Tickets", new { id = item.Id })">Details</a>
+
+                    @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,146 @@
+
+body{
+    margin-top: 55px;
+}
+
+#assignUsersButton,
+#ticketEditBtn,
+#createTicketBtn,
+.ticketDetailsSubmit,
+#createProjectBtn,
+#editProjectBtn, 
+#roleMgmtUpdate{
+    font-weight: bold;
+    background-color: #0f8897;
+    opacity: 0.7;
+    border-radius:  7px;
+    color: #fff;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+}
+#assignUsersButton:hover,
+#ticketEditBtn:hover,
+#createTicketBtn:hover,
+.ticketDetailsSubmit:hover,
+#createProjectBtn:hover,
+#editProjectBtn:hover, 
+#roleMgmtUpdate:hover{
+    font-weight: bold;
+    /*background-color: #084951;*/
+    background-color: #0f8897;
+    opacity: 1;
+    color: #fff;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+}
+.breadcrumb{
+    font-size: 1em;
+}
+.btn-xs{
+    min-width: 50px;
+    border-radius: 5px;
+}
+.btn-xs a{
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+
+}
+#createTicket, 
+#createProject{
+    border-radius: 5px;
+}
+#createTicket a, 
+#createTicket i,
+#createProject a,
+#createProject i{
+    color: #fff;
+    font-size: .9em;
+    letter-spacing: 0.1em;
+    font-weight: bolder;
+    opacity: .7;
+}
+#createTicket a:hover,
+#createProject a:hover{
+    text-decoration: none;
+    color: #fff;
+    opacity: 1;
+}
+.custom-header{
+    font-weight: bold;
+    background-color: #084951;
+    color: #fff;
+}
+hr{
+    color: #0d737f;
+    border: 1px solid #084951;
+    opacity: .3; 
+}
+.table-title{
+    font-size: 1.4em;
+}
+.tableHeader th{
+    font-size: 1.2em;
+}
+.dataTables_length label, 
+.dataTables_filter label, 
+.dataTables_info, 
+.dataTables_paginate{
+    font-size: 1.1em
+}
+dt, label{
+    color: #084951;
+    font-weight: bold; 
+}
+em{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.logged-user a {
+    color: #fff;
+}
+.logged-user a:hover {
+    opacity: .5;
+}
+.main-header h2, h4{
+    color: #084951;
+    font-weight: bold;
+}
+.main-header h2{
+    border-right-color: #084951;
+}
+.nav > li > a, .nav > li > a{
+    background-color: #073e46;
+    opacity: .7;
+}
+.nav > li > a:focus, .nav > li > a:hover {
+    background-color: #073e46;
+    opacity: 1;
+}
+.ticketDetailsHeader, .projectDetailsHeader{
+    color: #084951;
+}
+/*.ticketDetailsSubmit{
+    background-color: #0f8897;
+    border-radius: 10px;
+    font-size: 1em;
+    opacity: 0.7;
+}*/
+#TicketTypeId, 
+#ProjectId,
+#TicketPriorityId,
+#TicketStatusId,
+#AssignedToUserId {
+    background-color: #fff;
+}
+#pmId1,
+#pmId2 {
+    background-color: #fff;
+}
+.widget .widget-header {
+    background-color: #737373;
+  border-bottom-color: #195872;
+  color: #fff;
+}

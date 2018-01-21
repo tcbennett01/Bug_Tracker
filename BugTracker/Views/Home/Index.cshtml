@@ -1,0 +1,144 @@
+﻿
+@using BugTracker.Models
+
+@model LoginViewModel
+
+
+@{
+    Layout = "~/Views/Shared/_MyLogin.cshtml";
+}
+
+<link href="~/assets/css/my-custom-Landing.css" rel="stylesheet" type="text/css">
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+<!-- Template -->
+<div class="wrapper full-page-wrapper page-auth page-login text-center">
+    <div class="inner-page">
+        <div class="logInHeader">
+            <h1 id="landingHeader">Bug Tracker</h1><br />
+            <h2 id="landingSubHeader1">Premium</h2><br />
+        </div>
+    </div>
+</div><br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div> <!-- Spacer-->
+        <div class="col-md-6 text-left" id="landingDesc" style="color: white">
+            <p>Bug Tracker is a ticketing platform and workflow manager customized for the software industry. Features include role-based authentication and functionality, ticket lifecycle management, ability to upload attachments, add comments, send developer notifications, clean interface, and security that prevents cross-site scripting.</p><br />
+            <p>The platform was built using C#, .Net MVC, Entity Framework Code First connected to a SQL database and hosted by Azure. Front-end was designed using HTML, CSS, Bootstrap, Razor, JavaScript and jQuery.</p>
+
+        </div>
+        <div col-md-3></div> <!-- Spacer-->
+    </div>
+</div>
+<br /><br />
+<div class="container">
+    <div class="row text-center">
+        <img src="~/assets/img/htmlcssjs.png" style="max-width: 80px; max-height: 80px; margin-right: 7px; margin-left: 7px">
+        <img src="~/assets/img/bootstrap.jpg" style="max-width: 80px; max-height: 80px; margin-right: 7px; margin-left: 7px">
+        <img src="~/assets/img/Csharp2.jpg" style="max-width: 80px; max-height: 80px; margin-right: 7px; margin-left: 7px">
+        <img src="~/assets/img/mvc.jpg" style="max-width: 90px; max-height: 90px; margin-right: 7px; margin-left: 7px">
+        <img src="~/assets/img/sql.jpg" style="max-width: 90px; max-height: 90px; margin-right: 7px; margin-left: 7px">
+    </div>
+</div>
+<br />
+<div class="wrapper full-page-wrapper page-auth page-login text-center" style="margin-top: 115px">
+    <div class="inner-page">
+
+        <div class="login-box center-block" id="logInBox">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="text-center">
+                    <h4 id="landingLogIn" class-"text-center">ACCOUNT LOGIN</h4>
+                </div>
+                <br>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        </div>
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <label class="fancy-checkbox">
+                                <input type="checkbox">
+                                <span>Remember me next time</span>
+                            </label>
+                        </div>
+                    </div>
+                        <div class="col-md-2"></div>
+                            <div class="form-group">
+                                <div class="col-md-7">
+                                    <button class="btn btn-custom-primary btn-lg btn-block btn-auth" id="logInBtn"><i class="fa fa-arrow-circle-o-right"></i> Login</button>
+                                </div>
+                            </div>
+            }
+            <div class="links" style="font-weight: bold">
+                <P>
+                    @Html.ActionLink("Forgot Password", "ForgotPassword", "Account", null, new { @class = "text" })
+                </P>
+                <br />
+                <P>
+                    @Html.ActionLink("Create New Account", "Register", "Account", null, new { @class = "text" })
+                </P>
+            </div>
+        </div>
+        <br /><br />
+        <h4>Demo Accounts</h4><br />
+
+        <div class="row text-center">
+            <div class="btn-group">                 
+                @using (Html.BeginForm("LoginGuestSubmitter", "Account"))
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary">Submitter</button>
+                }              
+                @using (Html.BeginForm("LoginGuestDeveloper", "Account"))
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary">Developer</button>
+                }
+                @using (Html.BeginForm("LoginGuestProjectManager", "Account"))
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary">Project Mgr.</button>
+                }
+                @using (Html.BeginForm("LoginGuestAdmin", "Account"))
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary">Admin</button>
+                }                
+            </div><br /><br /><br />
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+
+
