@@ -176,3 +176,9 @@ em{
     padding: 10px;
     box-sizing: border-box;
 }
+
+.ticketForm{
+    border: 3px solid #073e46;
+    border-radius: 10px;
+    padding-top: 15px;
+}
