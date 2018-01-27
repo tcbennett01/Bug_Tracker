@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" />
 <link href="~/lou-multi-select-cf6d6c6/css/multi-select.css" rel="stylesheet" />
 <style>
-    footer{
+    footer {
         display: none;
     }
 </style>
@@ -32,33 +32,38 @@
         <div class="row">
             <div class="col-md-8">
                 <h2>Admin Manage Roles</h2>
-                <em>@Html.DisplayFor(model => model.firstName)
-                    @Html.DisplayFor(model => model.lastName) </em>
+                <em>
+                    @Html.DisplayFor(model => model.firstName)
+                    @Html.DisplayFor(model => model.lastName)
+                </em>
             </div>
         </div>
     </div>
     <div class="main-content">
-        <div class="row">
-            <div class="col-md-1"></div> <!--Spacer-->
-            <div class="col-md-8">
-                <div class="project-section general-info">
-                    @using (Html.BeginForm("RoleManagement", "Admin", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
-                        @Html.HiddenFor(model => model.Id)
+        <div class="project-section general-info">
+            <div class="row">
+                <div class="col-md-1"></div> <!--Spacer-->
+
+                @using (Html.BeginForm("RoleManagement", "Admin", FormMethod.Post))
+            {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.Id)
+                    <div class="col-md-6 roleForm">
                         @*@Model.firstName
-                        @Model.lastName*@
+                            @Model.lastName*@
                         @Html.ListBox("SelectedRoles", Model.roleList, new { @id = "selectRole", multiple = "multiple" })
 
                         <button type="submit" id="roleMgmtUpdate">
                             Update
                         </button>
-                    }
-                </div>
+                    </div>
+                }
             </div>
         </div>
     </div>
+
 </div>
+
 
 <script src="~/assets/js/jquery/jquery-2.1.0.min.js"></script>
 <script src="~/lou-multi-select-cf6d6c6/js/jquery.multi-select.js"></script>

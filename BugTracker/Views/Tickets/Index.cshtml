@@ -21,7 +21,7 @@
         </ul>
     </div>
 </div>
-<div class="content">
+@*<div class="content">
     <div class="main-header">
         <br />
         <div class="row">
@@ -31,7 +31,8 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
+<br />
     <button id="createTicket" class="btn btn-danger">
         <i class="fa fa-plus"></i>
         @*@Html.ActionLink("New Ticket", "Create", "Tickets", null, new { @class = "btn btn-danger"})*@
@@ -41,7 +42,7 @@
     <!-- DATA TABLE: USER SUBMITTED TICKETS -->
     <div class="widget widget-table">
         <div class="widget-header table-title">
-            <h3><i class="fa fa-table"></i>MY SUBMITTED TICKETS</h3>
+            <h3><i class="fa fa-table"></i>MY OPEN TICKETS</h3>
         </div>
         <div class="widget-content">
             <table id="featured-datatable" class="table @*table-sorting*@ table-striped table-bordered table-hover datatable ">

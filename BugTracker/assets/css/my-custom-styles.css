@@ -178,10 +178,15 @@ em{
 }
 
 .ticketForm,
-.projectForm {
+.projectForm, 
+.roleForm {
     border: 3px solid #073e46;
     border-radius: 10px;
     padding-top: 15px;
+}
+
+.roleForm {
+    padding-bottom: 15px;
 }
 
 .ticketDetailContent,
