@@ -20,117 +20,132 @@
     </div>
 </div>
 <!-- main -->
-<div class="content">
-    <div class="main-header">
-    <br />
-        <div class="row">
-            <div class="col-md-8">
-                <h2>Ticket Details</h2>
-                <em>@Html.DisplayFor(model => model.Title)</em>
+<div class="container-fluid">
+    @*<div class="main-header">
+            <br />
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Ticket Details</h2>
+                    <em>@Html.DisplayFor(model => model.Title)</em>
+                </div>
             </div>
-        </div>
-    </div>
-        <div class="main-content">
-            <div class="project-section general-info">
-                <div class="row">
-                    @*<div class="col-md-1"></div>*@
-                    <div class="col-md-5">
-                        @*<div class="project-section general-info">*@
-                        <h4>Description</h4>
-                        @*<button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-edit"></i> Edit Project</button>*@
-                        <p>@Html.DisplayFor(model => model.Description)</p>
-                    </div>
-                    <div class="col-md-1"></div><!-- Spacer -->
-                    <div class="col-sm-5">
-                        <dl class="dl-horizontal">
-                            <br />
-                            <dt>Submitter:</dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.OwnerUser.FirstName)
-                                @Html.DisplayFor(model => model.OwnerUser.LastName)
-                            </dd>
-                            <dt>Ticket Type:</dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.TicketType.Name)
-                            </dd>
-                            <dt>Priority:</dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.TicketPriority.Name)
-                            </dd>
-                            <dt>Create Date:</dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Created)
-                            </dd>
-                            <dt>Status:</dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.TicketStatus.Name)
-                            </dd>
-                            <dt>Assigned To:</dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.AssignedToUser.FirstName)
-                                @Html.DisplayFor(model => model.AssignedToUser.LastName)
-                            </dd>
-                            <dt>Last Modified:</dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Updated)
-                            </dd>
-                        </dl>
+        </div>*@
+    <br /><br />
+    <div class="main-content" >
+        <div class="row " style="border: 1px solid black">
+        <div class="project-section general-info " >
+            <div class="row">
+                @*<div class="col-md-1"></div>*@
+                <div class="col-md-12">
+                    <div class="detailTableHeader">
+                        <h3 class="detailTableHeaderTitle"><i class="fa fa-pencil "></i>&nbspTicket Details</h3>
                     </div>
                 </div>
-                <br />
-                <hr />
-                <!-- TICKET ATTACHMENTS -->
-                <div class="row">
-                    <div class="col-md-5">
-                        <h3 class="ticketDetailsHeader" style="text-align: left">Ticket Attachments</h3><br />
-                        <h5>Uploaded Attachments (<span>@Model.Attachments.Count</span>)</h5>
-                        @foreach (var item in Model.Attachments)
-                        {
-                            <a href=@item.FileUrl>
-                                @if (item.Description != null)
-                                {
-                                    @item.Description
-                                }
-                                else
-                                {
-                                    <span>Attachment</span>
-                                }
-                                @item.Created<span> </span>
-                            </a>
-                            <br />
-                        }
+            </div>
+            <div class="row ticketDetails">
+                <div class="col-md-5" >
+                    @*<div class="project-section general-info">*@
+                    <div>
+                        <h3 class="ticketDetailsHeader">Title: <span>@Html.DisplayFor(model => model.Title)</span></h3>
                     </div>
-                    <div class="col-md-1"></div> <!-- Spacer-->
-                        <div class="col-md-6">
-                            <br /><br /><br />
-                            @if (User.Identity.GetUserId() == Model.OwnerUserId
-                                    || User.Identity.GetUserId() == Model.AssignedToUserId
-                                    || User.IsInRole("Project Manager")
-                                 || User.IsInRole("Admin"))
-                            {
-                                <h5 style="text-align: left">Upload New Attachment</h5><br />
-                                 @Html.Partial("_Attachments", new BugTracker.Models.TicketAttachments() { TicketId = Model.Id, UserId = User.Identity.GetUserId() })
-                            }
-                        </div>
-                </div>
-                <br />
-                <!-- /TICKET ATTACHMENTS -->
-                <hr />           
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="ticketDetailsHeader">Comments</h3>
-                        <h5 class="text-left">Comments (<span>@Model.TicketComments.Count</span>)</h5>
-                        @foreach (var item in Model.TicketComments)
-                        {
-                            <div class="media text-left">
-                                @*<a class="pull-left" href="#">
+                    <div>
+                        <h3 class="ticketDetailsHeader"> Notes:</h3>
+                    </div>
+
+                    @*<button type="button" class="btn btn-sm btn-primary pull-right"><i class="fa fa-edit"></i> Edit Project</button>*@
+                    <p>@Html.DisplayFor(model => model.Description)</p>
+                </div>
+                <div class="col-md-1"></div><!-- Spacer -->
+                <div class="col-sm-5">
+                    <dl class="dl-horizontal">
+                        <dt>Submitter:</dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.OwnerUser.FirstName)
+                            @Html.DisplayFor(model => model.OwnerUser.LastName)
+                        </dd>
+                        <dt>Ticket Type:</dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TicketType.Name)
+                        </dd>
+                        <dt>Priority:</dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TicketPriority.Name)
+                        </dd>
+                        <dt>Create Date:</dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Created)
+                        </dd>
+                        <dt>Status:</dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TicketStatus.Name)
+                        </dd>
+                        <dt>Assigned To:</dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.AssignedToUser.FirstName)
+                            @Html.DisplayFor(model => model.AssignedToUser.LastName)
+                        </dd>
+                        <dt>Last Modified:</dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Updated)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <br />
+            <hr />
+            <!-- TICKET ATTACHMENTS -->
+            <div class="row ticketDetails">
+                <div class="col-md-5">
+                    <h3 class="ticketDetailsHeader" style="text-align: left">Ticket Attachments</h3><br />
+                    <h5>Uploaded Attachments (<span>@Model.Attachments.Count</span>)</h5>
+                    @foreach (var item in Model.Attachments)
+                    {
+                        <a href=@item.FileUrl>
+                            @if (item.Description != null)
+                            {
+                                @item.Description
+                            }
+                            else
+                            {
+                                <span>Attachment</span>
+                            }
+                            @item.Created<span> </span>
+                        </a>
+                            <br />
+                    }
+                </div>
+                <div class="col-md-1"></div> <!-- Spacer-->
+                <div class="col-md-6">
+                    <br /><br />
+                    @if (User.Identity.GetUserId() == Model.OwnerUserId
+                            || User.Identity.GetUserId() == Model.AssignedToUserId
+                            || User.IsInRole("Project Manager")
+                         || User.IsInRole("Admin"))
+                    {
+                        <h5 style="text-align: left">Upload New Attachment</h5><br />
+                                @Html.Partial("_Attachments", new BugTracker.Models.TicketAttachments() { TicketId = Model.Id, UserId = User.Identity.GetUserId() })
+                    }
+                </div>
+            </div>
+            <br />
+            <!-- /TICKET ATTACHMENTS -->
+            <hr />
+
+            <div class="row ticketDetails">
+                <div class="col-md-4">
+                    <h3 class="ticketDetailsHeader">Comments</h3>
+                    <h5 class="text-left">Comments (<span>@Model.TicketComments.Count</span>)</h5>
+                    @foreach (var item in Model.TicketComments)
+                    {
+                        <div class="media text-left">
+                            @*<a class="pull-left" href="#">
                                     <img class="media-object" src="~/assets/genericAvatar.jpg" alt="" style="height: 50px; width: 50px">
                                 </a>*@
-                                <div class="media-body">
-                                    <h5 class="media-heading">
-                                        <strong>
-                                            @Html.DisplayFor(modelItem => item.User.FirstName)<text> </text>
+                            <div class="media-body">
+                                <h5 class="media-heading">
+                                    <strong>
+                                        @Html.DisplayFor(modelItem => item.User.FirstName)<text> </text>
                                         @Html.DisplayFor(modelItem => item.User.LastName)
                                     </strong>
                                     @Html.DisplayFor(modelItem => item.Created)
@@ -140,95 +155,96 @@
 
                             @* Validate roles to edit or delete*@
                             @*@if (User.IsInRole("Admin"))
-                            {
-                                <div class="text-left">
-                                    <a href="@Url.Action("Edit", "TicketComments", new { id = item.Id})">Edit | </a>
-                                    <a href="@Url.Action("Delete", "Tic,etComments", new { id = item.Id})">Delete</a>
-                                </div>
-                            }*@
+                                {
+                                    <div class="text-left">
+                                        <a href="@Url.Action("Edit", "TicketComments", new { id = item.Id})">Edit | </a>
+                                        <a href="@Url.Action("Delete", "Tic,etComments", new { id = item.Id})">Delete</a>
+                                    </div>
+                                }*@
 
                         </div>
-                        }
-                    </div>
-                    <div class="col-md-2"></div> <!-- Spacer-->
-                    <div class="col-md-4">
-                        <br /><br /><br />
-                        @if (User.Identity.GetUserId() == Model.OwnerUserId
-                            || User.Identity.GetUserId() == Model.AssignedToUserId
-                            || User.IsInRole("Project Manager")
-                            || User.IsInRole("Admin"))
-                        {
-                            <h5>Leave A Comment</h5><br />
-                            using (Html.BeginForm("Create", "TicketComments", FormMethod.Post, new { id = Model.Id }))
-                            {
-                                @Html.AntiForgeryToken()
-
-                                <div class="form-group">
-                                    <input type="hidden" name="TicketId" value="@Model.Id" />
-                                    <textarea class="form-control" id="ticketComment" name="Comment" rows="3"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary ticketDetailsSubmit">Submit</button>
-                            }
-                        }
-                    </div>
+                    }
                 </div>
+                <div class="col-md-2"></div> <!-- Spacer-->
+                <div class="col-md-4">
+                    <br /><br />
+                    @if (User.Identity.GetUserId() == Model.OwnerUserId
+                    || User.Identity.GetUserId() == Model.AssignedToUserId
+                    || User.IsInRole("Project Manager")
+                    || User.IsInRole("Admin"))
+                    {
+                        <h5>Leave A Comment</h5><br />
+                        using (Html.BeginForm("Create", "TicketComments", FormMethod.Post, new { id = Model.Id }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group">
+                                <input type="hidden" name="TicketId" value="@Model.Id" />
+                                <textarea class="form-control" id="ticketComment" name="Comment" rows="3"></textarea>
+                            </div>
+                                <button type="submit" class="btn btn-primary ticketDetailsSubmit">Submit</button>
+                        }
+                    }
                 </div>
             </div>
+        </div>
+            </div>
     </div>
-<hr />
+</div>
+
 <br />
-    <!-- History-->
-    <div class="widget widget-table">
-        <div class="widget-header table-title">
-            <h3><i class="fa fa-table"></i>Ticket History</h3>
-        </div>
-        <div class="widget-content">
-            <table id="featured-datatable" class="table @*table-sorting*@ table-striped table-bordered table-hover datatable ">
-                <thead>
-                    <tr class="tableHeader">
-                        <th>
-                            Date Modified
-                        </th>
-                        <th>
-                            User
-                        </th>
-                        <th>
-                            Property
-                        </th>
-                        <th>
-                            New Value
-                        </th>
-                        <th>
-                            Old Value
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.Histories.OrderByDescending(h => h.ChangeDate))
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ChangeDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.User.FirstName)
-                                @Html.DisplayFor(modelItem => item.User.LastName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Property)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.NewValue)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.OldValue)
-                            </td>
-                        </tr>                       
-                    }
-                </tbody>
-            </table>
-        </div>
+<!-- History-->
+<div class="widget widget-table">
+    <div class="widget-header table-title">
+        <h3><i class="fa fa-table"></i>Ticket History</h3>
     </div>
+    <div class="widget-content">
+        <table id="featured-datatable" class="table @*table-sorting*@ table-striped table-bordered table-hover datatable ">
+            <thead>
+                <tr class="tableHeader">
+                    <th>
+                        Date Modified
+                    </th>
+                    <th>
+                        User
+                    </th>
+                    <th>
+                        Property
+                    </th>
+                    <th>
+                        New Value
+                    </th>
+                    <th>
+                        Old Value
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Histories.OrderByDescending(h => h.ChangeDate))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ChangeDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.FirstName)
+                            @Html.DisplayFor(modelItem => item.User.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Property)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NewValue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OldValue)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 <br /><br />
 <!-- /main -->
 
@@ -240,11 +256,10 @@
 
 <script>
     $('.table').DataTable({
-        "order":[[0,"desc"]]
+        "order": [[0, "desc"]]
     });
 </script>
 
 
 
 
-  

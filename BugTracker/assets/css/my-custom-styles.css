@@ -144,3 +144,35 @@ em{
   border-bottom-color: #195872;
   color: #fff;
 }
+
+
+.detailContainer {
+    padding: 20px 10px;
+}
+.detailTableHeader {
+    background-color: #073e46;
+    border-bottom-color: #06343a;
+    color: #fff;
+    font-weight: 800;
+    padding: 0 10px;
+    padding-top: 5px;
+    height: 35px;
+    border-bottom-width: 1px;
+    font-size: 2em;
+    /*box-sizing: border-box;*/
+    vertical-align: bottom;
+    font-family: "latobold";
+    /*font-size: 1.1em;*/
+    line-height: 35px;
+}
+
+.detailTableHeaderTitle {
+    font-weight: 500;
+    font-family: "latobold";
+    /*font-size: 1.1em;*/
+}
+
+.ticketDetails{
+    padding: 10px;
+    box-sizing: border-box;
+}
