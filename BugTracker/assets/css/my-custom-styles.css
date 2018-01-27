@@ -177,7 +177,8 @@ em{
     box-sizing: border-box;
 }
 
-.ticketForm{
+.ticketForm,
+.projectForm {
     border: 3px solid #073e46;
     border-radius: 10px;
     padding-top: 15px;
