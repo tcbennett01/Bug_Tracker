@@ -34,72 +34,73 @@
                 <em>Create</em>
             </div>
         </div>
-    </div><br />
+    </div>
     <div class="main-content">
         <div class="project-section general-info">
             <div class="row">
-                @*<div class="col-md-1"></div>*@
+                <div class="col-md-1"></div>
                 @using (Html.BeginForm("Create", "Tickets", FormMethod.Post, new { enctype = "Multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
-
-                    <div class="form-horizontal">
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-1" })
-                            <div class="col-md-4">
-                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-                            </div>
-                        </div><br />
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-1" })
-                            <div class="col-md-4">
-                                @Html.TextAreaFor(model => model.Description, new { @rows=5, @cols=52, htmlAttributes = new { @class = "form-control", } })
-                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                            </div>
-                        </div><br />
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ProjectId, "Project", htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-1" })
-                            <div class="col-md-4">
-                                @Html.DropDownList("ProjectId", null, htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ProjectId, "", new { @class = "text-danger" })
-                            </div>
-                        </div><br />
-
-                        <!-- Limit ability to assign ticket type and priority-->
-                        @if (User.IsInRole("Project Manager") || User.IsInRole("Admin"))
-                        {
+                    <div class="col-md-6 ticketForm">
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="form-group">
-                                @Html.LabelFor(model => model.TicketTypeId, "Ticket Type", htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-1" })
-                                <div class="col-md-4">
-                                    @Html.DropDownList("TicketTypeId", null, htmlAttributes: new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.TicketTypeId, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                                 </div>
                             </div><br />
                             <div class="form-group">
-                                @Html.LabelFor(model => model.TicketPriorityId, "Priority", htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-1" })
-                                <div class="col-md-4">
-                                    @Html.DropDownList("TicketPriorityId", null, htmlAttributes: new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.TicketPriorityId, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(model => model.Description, new { @rows = 5, @cols = 68, htmlAttributes = new { @class = "form-control", } })
+                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                                 </div>
                             </div><br />
-                        }
-                        @*<div class="form-group">
-                            @Html.LabelFor(model => model.Attachments, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-1" })
-                            <div class="col-md-4">
-                                <input name="image" type="file" class="form-control" id="fileUpload" />
-                                @Html.ValidationMessageFor(model => model.Attachments, "", new { @class = "text-danger" })
-                            </div>
-                        </div><br />*@
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Create" class="btn btn-default" id="createTicketBtn" />
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ProjectId, "Project", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("ProjectId", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProjectId, "", new { @class = "text-danger" })
+                                </div>
+                            </div><br />
+
+                            <!-- Limit ability to assign ticket type and priority-->
+                            @if (User.IsInRole("Project Manager") || User.IsInRole("Admin"))
+                            {
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.TicketTypeId, "Type", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.DropDownList("TicketTypeId", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.TicketTypeId, "", new { @class = "text-danger" })
+                                    </div>
+                                </div><br />
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.TicketPriorityId, "Priority", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.DropDownList("TicketPriorityId", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.TicketPriorityId, "", new { @class = "text-danger" })
+                                    </div>
+                                </div><br />
+                            }
+                            @*<div class="form-group">
+                                    @Html.LabelFor(model => model.Attachments, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-1" })
+                                    <div class="col-md-4">
+                                        <input name="image" type="file" class="form-control" id="fileUpload" />
+                                        @Html.ValidationMessageFor(model => model.Attachments, "", new { @class = "text-danger" })
+                                    </div>
+                                </div><br />*@
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-default" id="createTicketBtn" />
+                                </div>
                             </div>
                         </div>
+                        </div>
+                        }
                     </div>
-                }
-            </div>
         </div>
     </div>
 </div>
