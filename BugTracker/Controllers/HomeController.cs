@@ -18,7 +18,13 @@ namespace BugTracker.Controllers
             
             return View();
         }
-        
+
+        [OutputCache(NoStore = true, Duration = 0, VaryByParam = "None")]
+        public ActionResult LandingIndex()
+        {
+
+            return View();
+        }
         public ActionResult About(string userId, string role)
         {
             roleHelper.AddUserToRole(userId, role);

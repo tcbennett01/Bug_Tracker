@@ -1,0 +1,123 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_NewLandingPage.cshtml";
+}
+
+<!-- Top content -->
+<div id="home" class="parallax top-content" data-stellar-background-ratio="0.3">
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+                    <h2>Premier</h2>
+                    <h1>Bug Tracker</h1>
+                        <div class="description">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features -->
+<div id="features-section" class="product-container product-bg1">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+                <div class="product">
+                    <h3>Features</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="product-container product-bg2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-lg-offset-1 col-sm-5">
+                <div class="productbox">
+                    <div>
+                        <i class="fa fa-check"></i>
+                    </div>
+                    <h5>Ticket lifecycle management - change tracking</h5>
+                </div>
+                <div class="productbox">
+                    <div>
+                        <i class="fa fa-check"></i>
+                    </div>
+                    <h5>Role-based authentication & functionality</h5>
+                </div>
+                <div class="productbox">
+                    <div>
+                        <i class="fa fa-check"></i>
+                    </div>
+                    <h5>Ability to upload attachments</h5>
+              </div>
+            </div>
+            <div class="col-lg-5 col-sm-5">
+                <div class="productbox">
+                    <div>
+                        <i class="fa fa-check "></i>
+                    </div>
+                    <h5>Add comments to communicate with teammates</h5>
+                </div>
+                <div class="productbox">
+                    <div>
+                        <i class="fa fa-check"></i>
+                    </div>
+                    <h5>Developer email notifications</h5>
+                </div>
+                <div class="productbox">
+                    <div>
+                        <i class="fa fa-check"></i>
+                    </div>
+                    <h5>Security to prevent cross-site scripting</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Technology -->
+    <div id="technology-section" class="product-container product-bg3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+                    <div class="product">
+                        <h3>Technology</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="technologyContainer" class="container">
+        <div id="technologyDescription"class="row text-center">
+            <br />
+            <P>The platform was built using C#, .Net MVC, Entity Framework Code<br />First connected to a SQL database and hosted by Azure. Front-end <br />was designed using HTML, CSS, Bootstrap, Razor, JavaScript and jQuery. </P>
+            <br /><br />
+        </div>
+        <div class="container">
+            <div class="row text-center">
+                <img src="~/assets/img/htmlcssjs.png" style="max-width: 120px; max-height: 120px; margin-right: 70px; margin-left: 70px">
+                <img src="~/assets/img/bootstrap.jpg" style="max-width: 120px; max-height: 120px; margin-right: 70px; margin-left: 70px">
+                <img src="~/assets/img/Csharp2.jpg" style="max-width: 120px; max-height: 120px; margin-right: 70px; margin-left: 70px">
+            </div>
+            <br /><br />
+            <div class="row text-center">
+                <img src="~/assets/img/MVC-Dev.jpg" style="max-width: 130px; max-height: 130px; margin-right: 70px; margin-left: 70px">
+                <img src="~/assets/img/sql.jpg" style="max-width: 130px; max-height: 130px; margin-right: 70px; margin-left: 70px">
+                <img src="~/assets/img/Azure1.png" style="max-width: 120px; max-height: 120px; margin-right: 70px; margin-left: 70px">
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    }
+
