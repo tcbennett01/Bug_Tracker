@@ -926,6 +926,8 @@
     <Content Include="Views\Home\Orig.cshtml" />
     <Content Include="Views\Account\Login - Copy.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login - Copy %282%29.cshtml" />
+    <Content Include="Views\Account\_LoginPartial2.cshtml" />
     <None Include="Views\Home\Index-Approved.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1026,6 +1028,7 @@
     <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Shared\_NewLandingPage.cshtml" />
     <Content Include="Views\Home\LandingIndex.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

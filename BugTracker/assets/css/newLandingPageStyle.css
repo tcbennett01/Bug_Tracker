@@ -1764,25 +1764,76 @@ color: #0dc0c0;
     font-size: 22px;
     line-height: 32px;
 }
-.video-iframe {
-  height: 200px;
-}
-
-	.btn-lg {
-		height: auto;
-		padding-bottom: 2px;
-	}
-
-
-	.btn-primary {
-		height: auto;
-		padding-top: 5px;
-		padding-bottom: 5px;
-	}
-	
 
 }
 #technologyDescription {
     margin-top: 10px;
     font-size: 18px;
 }
+
+.modal-header,
+.modal-body,
+.modal-footer{
+   	/*background-color: #5C9292;*/
+    background-color: #0dc0c0;
+    text-align: center;
+}
+#logInModal .btn-lg {
+    margin: 20px 0 !important;
+}
+
+#logInModal .form-group .input-group{
+    margin: 10px 0;
+}
+
+#logInModal .btn{
+    background-color: #073e46;
+}
+
+#logInModal .btn:hover{
+    color: #0dc0c0;
+}
+
+#logInModal .modal-title {
+    font-family: Rock Salt;
+}
+
+#logInModal .modal-header .close {
+    font-size: 24px;
+}
+
+#logInModal #logInHeader, #demoHeader{
+    font-weight: 600;
+}
+
+.btLogInInput{
+    background-color: white !important;
+}
+
+#logInModal a{
+    color: white;
+}
+
+
+#logInModal div.col-md-3.demoButton {
+    margin-right: -15px !important;
+ }
+
+#logInModal div.col-md-3.btn {
+    min-width: 150px;
+}
+
+#logInBtn{
+    width: 25%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#logInBtn{
+    width: 25%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+
+

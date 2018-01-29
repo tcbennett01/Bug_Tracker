@@ -6,13 +6,13 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    text-align: right;/*
-    /*margin-top: 500px;*/
+    text-align: right;
+
 }
 
 #backToLogIn{
     background-color: #084951;
-    color: #fff;;
+    color: #fff;
 
 }
 #backToLogIn a{
@@ -39,15 +39,15 @@ body {
 
 #landingHeader{
     font-family: Rock Salt;
-    font-size: 5em;
+    font-size: 2em;
     color: #fff;
-    text-shadow: 4px 4px #084951 ;
+    /*text-shadow: 4px 4px #084951 ;*/
 }
 #landingSubHeader1{
     font-family: Rock Salt;
     font-size: 3.5em;
     color: #fff;
-    text-shadow: 4px 4px #084951 ;
+    /*text-shadow: 4px 4px #084951 ;*/
 }
 .landingSubHeader2{
     font-family: Rock Salt;
@@ -66,7 +66,7 @@ body {
 h4{
     /*font-family: Rock Salt;*/
     color: #fff;
-    text-shadow: 2px 2px #084951 ;
+    /*text-shadow: 2px 2px #084951 ;*/
     letter-spacing: 0.1em;
 }
 #landingLogIn{
@@ -158,7 +158,7 @@ button.btn.btn-primary:hover{
 }
 @media screen and (min-width: 992px) {
    .page-auth .center-block {
-    width: 30%;
+    width: 35%;
   }
 }
 

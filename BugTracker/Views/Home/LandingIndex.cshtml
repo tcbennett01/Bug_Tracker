@@ -114,6 +114,28 @@
         </div>
     </div>
 
+<div class="fade modal" id="logInModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title text-center">Premier</h3>
+                <h3 class="modal-title text-center">Bug Tracker</h3>
+            </div>
+            <!-- body -->
+            <div class="modal-body">
+                <form role="form">
+                    <h3 id="logInHeader"class="text-center">Account Login</h3>
+                    <div class="form-group">
+                        @Html.Partial("_LoginPartial2")
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
