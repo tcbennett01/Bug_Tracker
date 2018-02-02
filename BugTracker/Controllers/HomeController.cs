@@ -25,6 +25,7 @@ namespace BugTracker.Controllers
 
             return View();
         }
+
         public ActionResult About(string userId, string role)
         {
             roleHelper.AddUserToRole(userId, role);

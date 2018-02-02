@@ -383,7 +383,6 @@
     <Content Include="assets\js\king-table.js" />
     <Content Include="assets\js\newLandingPage.main.js" />
     <Content Include="assets\js\newLandingPage.script.js" />
-    <Content Include="assets\js\owl.carousel.min.js" />
     <Content Include="assets\js\plugins\bootstrap-colorpicker\bootstrap-colorpicker.js" />
     <Content Include="assets\js\plugins\bootstrap-colorpicker\bootstrap-colorpicker.min.js" />
     <Content Include="assets\js\plugins\bootstrap-contextmenu\bootstrap-contextmenu.js" />
@@ -907,10 +906,7 @@
     <Content Include="connectionStrings.config">
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Properties\PublishProfiles\Azure-BugTracker-Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\tbennett-bug-tracker - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\tbennett-bugtracker - Web Deploy New.pubxml" />
-    <None Include="Properties\PublishProfiles\tbennett-bugtracker - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -925,10 +921,10 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Home\Orig.cshtml" />
     <Content Include="Views\Account\Login - Copy.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Index.cshtml - old" />
     <Content Include="Views\Account\Login - Copy %282%29.cshtml" />
     <Content Include="Views\Account\_LoginPartial2.cshtml" />
-    <None Include="Views\Home\Index-Approved.cshtml" />
+    <None Include="Views\Home\Index-Approved.cshtml - old" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1027,7 +1023,7 @@
     <Content Include="Views\Projects\Details-backup.cshtml" />
     <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Shared\_NewLandingPage.cshtml" />
-    <Content Include="Views\Home\LandingIndex.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LoginPartial2.cshtml" />
   </ItemGroup>
   <ItemGroup>
