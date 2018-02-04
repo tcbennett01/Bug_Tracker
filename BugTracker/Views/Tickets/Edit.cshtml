@@ -26,23 +26,31 @@
 </div>
 <!-- main -->
 <div class="content">
-    <div class="main-header">
+    @*<div class="main-header">
         <div class="row">
             <div class="col-md-10">
                 <h2>Ticket Edit</h2>
                 <em>@Html.DisplayFor(model => model.Title)</em>
             </div>
         </div>
-    </div>
+    </div>*@
     <div class="main-content">
         <div class="project-section general-info">
             <div class="row">
-                <div class="col-md-1"></div>
+                @*<div class="col-md-1"></div>*@
+                <div class="col-md-8 col-md-offset-2 editTableHeader">
+                    <div class="">
+                        <h3 class="detailTableHeaderTitle"><i class="fa fa-edit "></i>&nbspEdit Ticket</h3>
+                    </div>
+                </div>
+            </div>          
+            <div class="row">
+                @*<div class="col-md-1"></div>*@
                 @using (Html.BeginForm("Edit", "Tickets", FormMethod.Post, new { enctype = "Multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
-                    <div class="col-md-6 ticketForm">
-                        <div class="form-horizontal">
+                    <div class="col-md-8 col-md-offset-2 ticketForm">
+                        <div class="form-horizontal inner-form" >
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             @Html.HiddenFor(model => model.Id)
                             @Html.HiddenFor(model => model.OwnerUserId)
@@ -58,7 +66,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    @Html.TextAreaFor(model => model.Description, new { rows = 8, cols = 55, htmlAttributes = new { @class = "form-control" } })
+                                    @Html.TextAreaFor(model => model.Description, new { rows = 8, cols = 85, htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                                 </div>
                             </div><br />
@@ -133,6 +141,7 @@
                             </div>
                         </div>
                     </div>
+
                 }
             </div>
         </div>

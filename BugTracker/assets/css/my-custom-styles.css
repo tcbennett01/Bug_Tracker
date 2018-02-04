@@ -149,7 +149,8 @@ em{
 .detailContainer {
     padding: 20px 10px;
 }
-.detailTableHeader {
+.detailTableHeader,
+.editTableHeader {
     background-color: #073e46;
     border-bottom-color: #06343a;
     color: #fff;
@@ -177,21 +178,36 @@ em{
     box-sizing: border-box;
 }
 
-.ticketForm,
+/*.ticketForm,
 .projectForm, 
 .roleForm {
     border: 3px solid #073e46;
     border-radius: 10px;
     padding-top: 15px;
-}
+}*/
 
 .roleForm {
     padding-bottom: 15px;
 }
 
 .ticketDetailContent,
-.projectDetailContent {
+.projectDetailContent,
+.ticketForm,
+.projectForm,
+.roleForm {
     border: 1px solid #073e46;
+}
+
+/*.editTableHeader{
+padding: 0;
+}*/
+
+/*.editTableHeader h3 {
+    padding: 0;
+}*/
+
+.inner-form {
+    margin-top: 10px;
 }
 
 

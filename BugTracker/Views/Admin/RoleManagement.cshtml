@@ -27,7 +27,7 @@
 
 <!-- main -->
 <div class="content">
-    <div class="main-header">
+    @*<div class="main-header">
         <br />
         <div class="row">
             <div class="col-md-8">
@@ -38,20 +38,30 @@
                 </em>
             </div>
         </div>
-    </div>
+    </div>*@
     <div class="main-content">
         <div class="project-section general-info">
             <div class="row">
-                <div class="col-md-1"></div> <!--Spacer-->
+                @*<div class="col-md-1"></div>*@
+                <div class="col-md-6 col-md-offset-2 editTableHeader">
+                    <div class="">
+                        <h3 class="detailTableHeaderTitle"><i class="fa fa-edit "></i>&nbspManage Roles</h3>
+                    </div>
+                </div>
+            </div>      
+            <div class="row">
 
                 @using (Html.BeginForm("RoleManagement", "Admin", FormMethod.Post))
             {
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(model => model.Id)
-                    <div class="col-md-6 roleForm">
+                    <div class="col-md-6 col-md-offset-2 roleForm">
+                        <br />
                         @*@Model.firstName
                             @Model.lastName*@
-                        @Html.ListBox("SelectedRoles", Model.roleList, new { @id = "selectRole", multiple = "multiple" })
+                        <div class="innerForm">
+                             @Html.ListBox("SelectedRoles", Model.roleList, new { @id = "selectRole", multiple = "multiple" })
+                        </div>
 
                         <button type="submit" id="roleMgmtUpdate">
                             Update
